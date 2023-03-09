@@ -142,6 +142,7 @@ class WildGenerator3:
                 level,
                 get_shiny(pid, self.tsv),
                 info,
+                encounter_slot,
             )
 
             states.append(state)

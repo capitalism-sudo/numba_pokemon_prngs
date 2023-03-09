@@ -31,6 +31,7 @@ class State:
     level: np.uint8
     nature: np.uint8
     shiny: np.uint8
+    encount_slot: np.uint8
 
     def update_stats(self, info: PersonalInfoProtocol) -> None:
         """Update stats on initialization"""
@@ -87,6 +88,7 @@ class GeneratorState(State):
         level: np.uint8,
         shiny: np.uint8,
         info: PersonalInfoProtocol,
+        slot: np.uint8,
     ) -> None:
         self.advance = np.uint32(advance)
         self.pid = np.uint32(pid)
@@ -101,6 +103,7 @@ class GeneratorState(State):
         self.shiny = np.uint8(shiny)
         self.stats = np.empty(6, np.uint16)
         self.update_stats(info)
+        self.encount_slot = np.uint8(slot)
 
     def csv(self) -> tuple[tuple[str, str]]:
         """Get a tuple representing the fields and values of the state as str"""
